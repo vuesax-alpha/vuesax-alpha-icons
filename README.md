@@ -12,7 +12,7 @@
   <br>
 </p>
 
-# Element Plus Icons
+# Vuesax Plus Icons
 
 [![Unit Test](https://github.com/vuesax-x/vuesax-plus-icons/actions/workflows/unit-test.yml/badge.svg)](https://github.com/vuesax-x/vuesax-plus-icons/actions/workflows/unit-test.yml)
 
