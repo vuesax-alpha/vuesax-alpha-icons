@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { icons } from '@vuesax-plus/icons-vue/global'
+import { icons } from '@vuesax-alpha/icons-vue/global'
 </script>
 
 <style>

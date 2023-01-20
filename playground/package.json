@@ -1,5 +1,5 @@
 {
-  "name": "@vuesax-plus/icons-playground",
+  "name": "@vuesax-alpha/icons-playground",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -8,8 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vuesax-plus/icons-svg": "workspace:*",
-    "@vuesax-plus/icons-vue": "workspace:*",
+    "@vuesax-alpha/icons-svg": "workspace:*",
+    "@vuesax-alpha/icons-vue": "workspace:*",
     "vue": "^3.2.40"
   },
   "devDependencies": {

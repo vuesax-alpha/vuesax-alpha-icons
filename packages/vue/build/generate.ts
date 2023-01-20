@@ -19,7 +19,7 @@ const getSvgFiles = async () => {
     (await findWorkspaceDir.default(process.cwd()))!
   )
   const pkg = pkgs.find(
-    (pkg) => pkg.manifest.name === '@vuesax-plus/icons-svg'
+    (pkg) => pkg.manifest.name === '@vuesax-alpha/icons-svg'
   )!
   return glob('*.svg', { cwd: pkg.dir, absolute: true })
 }

@@ -1,22 +1,22 @@
 {
-  "name": "@vuesax-plus/icons-vue",
+  "name": "@vuesax-alpha/icons-vue",
   "version": "0.0.2-beta.0",
-  "description": "Vue components of Vuesax Plus Icons collection.",
+  "description": "Vue components of Vuesax Alpha Icons collection.",
   "type": "module",
   "keywords": [
     "icon",
     "svg",
     "vue",
-    "vuesax-plus"
+    "vuesax-alpha"
   ],
   "license": "MIT",
   "homepage": "https://vuesax.space/",
   "bugs": {
-    "url": "https://github.com/vuesax-x/vuesax-plus-icons/issues"
+    "url": "https://github.com/vuesax-alphax/vuesax-alpha-icons/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuesax-x/vuesax-plus-icons.git",
+    "url": "git+https://github.com/vuesax-alphax/vuesax-alpha-icons.git",
     "directory": "packages/vue"
   },
   "files": [
@@ -62,7 +62,7 @@
     "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.8.3",
     "@types/prettier": "^2.7.1",
-    "@vuesax-plus/icons-svg": "workspace:*",
+    "@vuesax-alpha/icons-svg": "workspace:*",
     "camelcase": "^7.0.0",
     "chalk": "^5.1.0",
     "consola": "^2.15.3",

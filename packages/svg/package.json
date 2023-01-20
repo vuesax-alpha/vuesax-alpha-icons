@@ -1,20 +1,20 @@
 {
-  "name": "@vuesax-plus/icons-svg",
+  "name": "@vuesax-alpha/icons-svg",
   "version": "0.0.2-beta.0",
-  "description": "SVG icon for Vuesax Plus Icons collection.",
+  "description": "SVG icon for Vuesax Alpha Icons collection.",
   "keywords": [
     "icon",
     "svg",
-    "vuesax-plus"
+    "vuesax-alpha"
   ],
   "license": "MIT",
   "homepage": "https://vuesax.space/",
   "bugs": {
-    "url": "https://github.com/vuesax-x/vuesax-plus-icons/issues"
+    "url": "https://github.com/vuesax-alphax/vuesax-alpha-icons/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuesax-x/vuesax-plus-icons.git",
+    "url": "git+https://github.com/vuesax-alphax/vuesax-alpha-icons.git",
     "directory": "packages/svg"
   },
   "files": [

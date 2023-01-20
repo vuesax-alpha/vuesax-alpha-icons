@@ -28,7 +28,7 @@ const buildBundle = () => {
       format,
       minifySyntax: true,
       banner: {
-        js: `/*! Vuesax Plus Icons Vue v${version} */\n`,
+        js: `/*! Vuesax Alpha Icons Vue v${version} */\n`,
       },
       outdir: pathOutput,
     }
@@ -38,7 +38,7 @@ const buildBundle = () => {
           vue: 'Vue',
         })
       )
-      options.globalName = 'VuesaxPlusIconsVue'
+      options.globalName = 'VuesaxAlphaIconsVue'
     } else {
       options.external = ['vue']
     }

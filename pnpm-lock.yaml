@@ -32,7 +32,7 @@ importers:
       '@types/fs-extra': ^9.0.13
       '@types/node': ^18.8.3
       '@types/prettier': ^2.7.1
-      '@vuesax-plus/icons-svg': workspace:*
+      '@vuesax-alpha/icons-svg': workspace:*
       camelcase: ^7.0.0
       chalk: ^5.1.0
       consola: ^2.15.3
@@ -54,7 +54,7 @@ importers:
       '@types/fs-extra': 9.0.13
       '@types/node': 18.11.18
       '@types/prettier': 2.7.2
-      '@vuesax-plus/icons-svg': link:../svg
+      '@vuesax-alpha/icons-svg': link:../svg
       camelcase: 7.0.1
       chalk: 5.2.0
       consola: 2.15.3
@@ -73,14 +73,14 @@ importers:
   playground:
     specifiers:
       '@vitejs/plugin-vue': ^3.1.2
-      '@vuesax-plus/icons-svg': workspace:*
-      '@vuesax-plus/icons-vue': workspace:*
+      '@vuesax-alpha/icons-svg': workspace:*
+      '@vuesax-alpha/icons-vue': workspace:*
       typescript: ^4.8.4
       vite: ^3.1.6
       vue: ^3.2.40
     dependencies:
-      '@vuesax-plus/icons-svg': link:../packages/svg
-      '@vuesax-plus/icons-vue': link:../packages/vue
+      '@vuesax-alpha/icons-svg': link:../packages/svg
+      '@vuesax-alpha/icons-vue': link:../packages/vue
       vue: 3.2.45
     devDependencies:
       '@vitejs/plugin-vue': 3.2.0_vite@3.2.5+vue@3.2.45
