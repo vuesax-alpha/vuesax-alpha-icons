@@ -7,12 +7,6 @@
     :class="key"
   />
   <hr />
-  <component
-    :is="`VsIcon${key}`"
-    v-for="key in Object.keys(icons)"
-    :key="key"
-    class="icon"
-  />
 </template>
 
 <script lang="ts" setup>
@@ -21,11 +15,21 @@ import { icons } from '@vuesax-alpha/icons-vue/global'
 
 <style>
 .icon {
-  height: 48px;
-  color: #409eff;
+  --color: inherit;
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  color: var(--color);
+  font-size: inherit;
 }
 svg {
-  color: #000;
+  height: 1em;
+  width: 1em;
 }
 path {
   fill: currentColor;

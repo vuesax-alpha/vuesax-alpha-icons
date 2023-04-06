@@ -19,7 +19,8 @@ const getSvgFiles = async () => {
     (await findWorkspaceDir.default(process.cwd()))!
   )
   const pkg = pkgs.find(
-    (pkg) => pkg.manifest.name === '@vuesax-alpha/icons-svg'
+    (pkg: { manifest: { name?: string } }) =>
+      pkg.manifest.name === '@vuesax-alpha/icons-svg'
   )!
   return glob('*.svg', { cwd: pkg.dir, absolute: true })
 }
@@ -77,7 +78,7 @@ await emptyDir(pathComponents)
 const files = await getSvgFiles()
 
 consola.info(chalk.blue('generating vue files'))
-await Promise.all(files.map((file) => transformToVueComponent(file)))
+await Promise.all(files.map((file: string) => transformToVueComponent(file)))
 
 consola.info(chalk.blue('generating entry file'))
 await generateEntry(files)
