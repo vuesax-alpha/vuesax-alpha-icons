@@ -23,12 +23,27 @@ function main(path) {
             const contents = readFileSync(`${path}/${file}`, {
               encoding: 'utf8',
             })
-            const textSearch = 'fill="#292D32"'
+            let textSearch = 'fill="#292D32"'
             let replaced = contents
             let changed = false
 
             if (includesCaseInsensitive(contents, textSearch)) {
               replaced = replaced.replaceAll(textSearch, 'fill="currentColor"')
+              changed = true
+            }
+
+            textSearch = 'stroke="#292D32"'
+            if (includesCaseInsensitive(contents, textSearch)) {
+              replaced = replaced.replaceAll(
+                textSearch,
+                'stroke="currentColor"'
+              )
+              changed = true
+            }
+
+            textSearch = ' width="24" height="24" '
+            if (includesCaseInsensitive(contents, textSearch)) {
+              replaced = replaced.replaceAll(textSearch, ' ')
               changed = true
             }
 
