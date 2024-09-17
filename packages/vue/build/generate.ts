@@ -41,31 +41,46 @@ const formatCode = (code: string, parser: BuiltInParserName = 'typescript') =>
     singleQuote: true,
   })
 
-const transformToVueComponent = async (file: string) => {
-  const content = await readFile(file, 'utf-8')
-  const { filename, componentName } = getName(file)
+const transformToVueComponent = async (files: string[], name: string) => {
+  const content: Record<string, string> = {}
+  for (const file of files) {
+    const type = file.split('-').pop()!.replace('.svg', '')
+    content[type] = await readFile(file, 'utf-8')
+  }
+  const componentName = camelcase(name, { pascalCase: true })
   const vue = formatCode(
     `
 <template>
-${content}
+<div>
+<div v-if="type === 'outline'">${content['outline']}</div>
+<div v-if="type === 'bold'">${content['bold']}</div>
+<div v-if="type === 'linear'">${content['linear']}</div>
+<div v-if="type === 'bulk'">${content['bulk']}</div>
+</div>
 </template>
+
 <script lang="ts">
-import type { DefineComponent } from 'vue'
-export default ({
-  name: "${componentName}",
-}) as DefineComponent
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+name: "${componentName}",
+props: {
+type: { type: String, default: "outline" }
+}
+})
 </script>`,
     'vue'
   )
-  writeFile(path.resolve(pathComponents, `${filename}.vue`), vue, 'utf-8')
+
+  writeFile(path.resolve(pathComponents, `${name}.vue`), vue, 'utf-8')
 }
 
-const generateEntry = async (files: string[]) => {
+const generateEntry = async (names: string[]) => {
   const code = formatCode(
-    files
-      .map((file) => {
-        const { filename, componentName } = getName(file)
-        return `export { default as ${componentName} } from './${filename}.vue'`
+    names
+      .map((name) => {
+        const componentName = camelcase(name, { pascalCase: true })
+        return `export { default as ${componentName} } from './${name}.vue'`
       })
       .join('\n')
   )
@@ -77,8 +92,19 @@ await ensureDir(pathComponents)
 await emptyDir(pathComponents)
 const files = await getSvgFiles()
 
+const groupedFiles = files.reduce((groups, file) => {
+  const name = file.split('-').slice(0, -1).join('-')
+  if (!groups[name]) groups[name] = []
+  groups[name].push(file)
+  return groups
+}, {} as Record<string, string[]>)
+
 consola.info(chalk.blue('generating vue files'))
-await Promise.all(files.map((file: string) => transformToVueComponent(file)))
+;(async () => {
+  for (const name of Object.keys(groupedFiles)) {
+    await transformToVueComponent(groupedFiles[name], name)
+  }
+})()
 
 consola.info(chalk.blue('generating entry file'))
-await generateEntry(files)
+await generateEntry(Object.keys(groupedFiles))
